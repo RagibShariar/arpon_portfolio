@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="portfolioGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#portfolioGradient)"/>
+  
+  <!-- Browser mockup -->
+  <rect x="20" y="30" width="360" height="190" rx="8" fill="#ffffff" fill-opacity="0.95"/>
+  <rect x="20" y="30" width="360" height="30" rx="8" fill="#f1f5f9"/>
+  <circle cx="40" cy="45" r="4" fill="#ef4444"/>
+  <circle cx="55" cy="45" r="4" fill="#f59e0b"/>
+  <circle cx="70" cy="45" r="4" fill="#10b981"/>
+  <rect x="100" y="38" width="200" height="14" rx="7" fill="#e2e8f0"/>
+  
+  <!-- Portfolio content mockup -->
+  <rect x="40" y="80" width="320" height="8" rx="4" fill="url(#codeGradient)"/>
+  <rect x="40" y="95" width="280" height="6" rx="3" fill="#cbd5e1"/>
+  <rect x="40" y="108" width="240" height="6" rx="3" fill="#cbd5e1"/>
+  
+  <!-- Code blocks -->
+  <rect x="40" y="130" width="150" height="60" rx="4" fill="#1e293b"/>
+  <rect x="45" y="135" width="80" height="4" rx="2" fill="#22d3ee"/>
+  <rect x="45" y="144" width="60" height="4" rx="2" fill="#a78bfa"/>
+  <rect x="45" y="153" width="100" height="4" rx="2" fill="#fb7185"/>
+  <rect x="45" y="162" width="70" height="4" rx="2" fill="#34d399"/>
+  <rect x="45" y="171" width="90" height="4" rx="2" fill="#fbbf24"/>
+  
+  <!-- Component preview -->
+  <rect x="210" y="130" width="150" height="60" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="220" y="140" width="60" height="6" rx="3" fill="#667eea"/>
+  <rect x="220" y="152" width="80" height="4" rx="2" fill="#64748b"/>
+  <rect x="220" y="162" width="70" height="4" rx="2" fill="#64748b"/>
+  <rect x="315" y="172" width="35" height="12" rx="6" fill="url(#codeGradient)"/>
+  
+  <!-- Floating elements -->
+  <circle cx="350" cy="80" r="8" fill="#ffffff" fill-opacity="0.3"/>
+  <circle cx="60" cy="200" r="6" fill="#ffffff" fill-opacity="0.2"/>
+  <rect x="300" y="200" width="12" height="12" rx="2" fill="#ffffff" fill-opacity="0.25"/>
+</svg>

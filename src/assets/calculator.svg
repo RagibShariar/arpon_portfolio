@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250">
+  <defs>
+    <linearGradient id="calcGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#475569;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="operatorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="250" fill="url(#calcGradient)"/>
+  
+  <!-- Calculator body -->
+  <rect x="100" y="30" width="200" height="190" rx="20" fill="#1f2937" stroke="#374151" stroke-width="2"/>
+  
+  <!-- Display screen -->
+  <rect x="115" y="45" width="170" height="40" rx="8" fill="url(#screenGradient)" stroke="#475569"/>
+  <text x="270" y="70" font-family="monospace" font-size="18" font-weight="bold" fill="#10b981" text-anchor="end">123,456.78</text>
+  
+  <!-- Button grid -->
+  <!-- Row 1 -->
+  <rect x="125" y="100" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="140" y="116" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">AC</text>
+  
+  <rect x="165" y="100" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="180" y="116" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">±</text>
+  
+  <rect x="205" y="100" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="220" y="116" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">%</text>
+  
+  <rect x="245" y="100" width="30" height="25" rx="4" fill="url(#operatorGradient)" stroke="#f59e0b"/>
+  <text x="260" y="116" font-family="Arial" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">÷</text>
+  
+  <!-- Row 2 -->
+  <rect x="125" y="135" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="140" y="151" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">7</text>
+  
+  <rect x="165" y="135" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="180" y="151" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">8</text>
+  
+  <rect x="205" y="135" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="220" y="151" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">9</text>
+  
+  <rect x="245" y="135" width="30" height="25" rx="4" fill="url(#operatorGradient)" stroke="#f59e0b"/>
+  <text x="260" y="151" font-family="Arial" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">×</text>
+  
+  <!-- Row 3 -->
+  <rect x="125" y="170" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="140" y="186" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">4</text>
+  
+  <rect x="165" y="170" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="180" y="186" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">5</text>
+  
+  <rect x="205" y="170" width="30" height="25" rx="4" fill="url(#buttonGradient)" stroke="#64748b"/>
+  <text x="220" y="186" font-family="Arial" font-size="12" font-weight="bold" fill="#f1f5f9" text-anchor="middle">6</text>
+  
+  <rect x="245" y="170" width="30" height="25" rx="4" fill="url(#operatorGradient)" stroke="#f59e0b"/>
+  <text x="260" y="186" font-family="Arial" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">-</text>
+  
+  <!-- Floating mathematical symbols -->
+  <text x="50" y="80" font-family="Arial" font-size="24" fill="#64748b" opacity="0.4">π</text>
+  <text x="350" y="120" font-family="Arial" font-size="20" fill="#64748b" opacity="0.3">∑</text>
+  <text x="70" y="200" font-family="Arial" font-size="18" fill="#64748b" opacity="0.3">√</text>
+  <text x="330" y="60" font-family="Arial" font-size="16" fill="#64748b" opacity="0.3">∞</text>
+  <text x="40" y="150" font-family="Arial" font-size="22" fill="#64748b" opacity="0.3">∫</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="380" cy="200" r="8" fill="#f59e0b" fill-opacity="0.3"/>
+  <circle cx="20" cy="40" r="6" fill="#10b981" fill-opacity="0.3"/>
+  <rect x="360" y="40" width="12" height="12" rx="2" fill="#3b82f6" fill-opacity="0.3"/>
+  
+  <!-- Scientific functions indicators -->
+  <rect x="320" y="160" width="60" height="70" rx="8" fill="#1f2937" fill-opacity="0.8" stroke="#374151"/>
+  <text x="325" y="175" font-family="monospace" font-size="8" fill="#64748b">sin</text>
+  <text x="345" y="175" font-family="monospace" font-size="8" fill="#64748b">cos</text>
+  <text x="365" y="175" font-family="monospace" font-size="8" fill="#64748b">tan</text>
+  <text x="325" y="190" font-family="monospace" font-size="8" fill="#64748b">log</text>
+  <text x="345" y="190" font-family="monospace" font-size="8" fill="#64748b">ln</text>
+  <text x="365" y="190" font-family="monospace" font-size="8" fill="#64748b">x²</text>
+  <text x="325" y="205" font-family="monospace" font-size="8" fill="#64748b">√x</text>
+  <text x="345" y="205" font-family="monospace" font-size="8" fill="#64748b">x!</text>
+  <text x="365" y="205" font-family="monospace" font-size="8" fill="#64748b">π</text>
+  <text x="335" y="220" font-family="monospace" font-size="8" fill="#10b981">Scientific</text>
+</svg>

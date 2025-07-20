@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="faceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeaa7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fab1a0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="150" cy="150" r="150" fill="url(#bgGradient)"/>
+  
+  <!-- Profile silhouette -->
+  <circle cx="150" cy="120" r="45" fill="url(#faceGradient)"/>
+  <path d="M150 170 C120 170, 90 190, 90 220 L90 300 L210 300 L210 220 C210 190, 180 170, 150 170 Z" fill="url(#faceGradient)"/>
+  
+  <!-- Simple features -->
+  <circle cx="135" cy="110" r="3" fill="#2d3436"/>
+  <circle cx="165" cy="110" r="3" fill="#2d3436"/>
+  <path d="M140 125 Q150 130 160 125" stroke="#2d3436" stroke-width="2" fill="none"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="50" cy="50" r="8" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="250" cy="80" r="6" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="70" cy="250" r="10" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="230" cy="220" r="7" fill="rgba(255,255,255,0.3)"/>
+</svg>
