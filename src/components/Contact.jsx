@@ -42,14 +42,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "syed.hamid@example.com",
-      href: "mailto:syed.hamid@example.com",
+      value: "shahriar2305101970@diu.edu.bd",
+      href: "mailto:shahriar2305101970@diu.edu.bd",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+880 1234 567890",
-      href: "tel:+8801234567890",
+      value: "+8801746847219",
+      href: "tel:+8801746847219",
     },
     {
       icon: MapPin,
