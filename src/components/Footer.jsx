@@ -57,16 +57,18 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="flex flex-wrap justify-center gap-6">
-              {["About", "Skills", "Projects", "Contact"].map((item) => (
-                <motion.a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  whileHover={{ y: -2 }}
-                  className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
-                >
-                  {item}
-                </motion.a>
-              ))}
+              {["About", "Education", "Skills", "Projects", "Contact"].map(
+                (item) => (
+                  <motion.a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    whileHover={{ y: -2 }}
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
+                  >
+                    {item}
+                  </motion.a>
+                )
+              )}
             </div>
           </motion.div>
 
