@@ -1,6 +1,14 @@
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
+import {
+  AlertCircle,
+  CheckCircle,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useTheme } from "../contexts/ThemeContext";
 
@@ -18,6 +26,24 @@ const Contact = () => {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [formStatus, setFormStatus] = useState({ type: "", message: "" });
+
+  // EmailJS configuration - These values come from environment variables
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  // Clear status message after 5 seconds
+  useEffect(() => {
+    if (formStatus.message) {
+      const timer = setTimeout(() => {
+        setFormStatus({ type: "", message: "" });
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [formStatus.message]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,17 +51,68 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    setIsLoading(true);
+    setFormStatus({ type: "", message: "" });
+
+    // Check if EmailJS is configured
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setFormStatus({
+        type: "error",
+        message:
+          "Email service is not configured. Please check the setup instructions in EMAILJS_SETUP.md",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Initialize EmailJS with your public key
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: "Arpon", // Your name
+          reply_to: formData.email,
+        }
+      );
+
+      console.log("Email sent successfully:", result);
+
+      // Show success message
+      setFormStatus({
+        type: "success",
+        message:
+          "Thank you! Your message has been sent successfully. I'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Failed to send email:", error);
+
+      // Show error message
+      setFormStatus({
+        type: "error",
+        message:
+          "Sorry, there was an error sending your message. Please try again or contact me directly via email.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -163,6 +240,34 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div variants={itemVariants}>
+            {/* Status Message */}
+            {formStatus.message && (
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mb-6 p-4 rounded-lg flex items-center space-x-3 ${
+                  formStatus.type === "success"
+                    ? "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800"
+                    : "bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
+                }`}
+              >
+                {formStatus.type === "success" ? (
+                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                ) : (
+                  <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
+                )}
+                <p
+                  className={`text-sm ${
+                    formStatus.type === "success"
+                      ? "text-green-700 dark:text-green-300"
+                      : "text-red-700 dark:text-red-300"
+                  }`}
+                >
+                  {formStatus.message}
+                </p>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -247,12 +352,26 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2"
+                disabled={isLoading}
+                whileHover={{ scale: isLoading ? 1 : 1.05 }}
+                whileTap={{ scale: isLoading ? 1 : 0.95 }}
+                className={`w-full font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 ${
+                  isLoading
+                    ? "bg-gray-400 dark:bg-gray-600 cursor-not-allowed"
+                    : "bg-gradient-to-r from-primary-500 to-secondary-500 hover:shadow-lg"
+                } text-white`}
               >
-                <Send size={20} />
-                <span>Send Message</span>
+                {isLoading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send size={20} />
+                    <span>Send Message</span>
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>
